@@ -1,0 +1,36 @@
+.select-wrapper {
+    display: flex;
+}
+
+.label {
+    margin-right: 5px;
+}
+
+.select {
+    display: block;
+    background: none;
+    color: var(--primary-color);
+    padding: 2px 10px 2px 2px;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius-s);
+    transition: border-color 0.3s ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+.option {
+    color: var(--inverted-primary-color);
+    background: var(--inverted-bg-color);
+    background: none;
+    border: none;
+}
