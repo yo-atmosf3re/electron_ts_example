@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-// import { app, BrowserWindow } from 'electron';
-// import * as path from 'path';
-// import isDev from 'electron-is-dev';
-// import { initialize } from '@electron/remote/main';
-
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 const { initialize } = require('@electron/remote/main');
+const { fs } = require('fs');
 
 function createWindow() {
     // ! Create the browser window.
@@ -24,7 +20,7 @@ function createWindow() {
         height: 768,
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname, 'preload.ts'),
         },
     });
 
@@ -33,7 +29,7 @@ function createWindow() {
     mainWindow.loadURL(
         isDev
             ? 'http://localhost:8888'
-            : `file://${path.join(__dirname, '../build/index.html')}`,
+            : `file://${path.join(__dirname, 'index.html')}`,
     );
 
     // ! Open the DevTools.
